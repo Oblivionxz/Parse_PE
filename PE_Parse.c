@@ -1,12 +1,6 @@
 #include <Windows.h>
 #include <stdio.h>
 
-typedef struct _MemberProperties {
-	PBYTE offset;
-	LPCSTR name;
-	DWORD value;
-} MemberProperties, * PMemberProperties;
-
 int main(int argc,char *argv[]) {
 	if (argc == 1) {
 		printf("Usage: %s <PE>\n", argv[0]);
@@ -81,6 +75,7 @@ _EndOfFunction:
 		return FALSE;
 	return TRUE;
 }
+
 BOOL ParsePE(PBYTE pPE) {
 
 	printf("\t#####################[ STARTING PE PARSE ]#####################\n");
