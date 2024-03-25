@@ -135,8 +135,6 @@ BOOL ParsePE(PBYTE pPE) {
 	printf("[+] File CheckSum : 0x%0.8X \n", ImgOptHdr.CheckSum);
 	printf("[+] Number of entries in the DataDirectory array : %d \n", ImgOptHdr.NumberOfRvaAndSizes); // this is the same as `IMAGE_NUMBEROF_DIRECTORY_ENTRIES` - `16`
 
-
-	//
 	printf("\n\t#####################[ DIRECTORIES ]#####################\n\n");
 
 	printf("[*] Export Directory At 0x%p Of Size : %d \n\t\t[RVA : 0x%0.8X]\n",
@@ -174,11 +172,7 @@ BOOL ParsePE(PBYTE pPE) {
 		ImgOptHdr.DataDirectory[IMAGE_DIRECTORY_ENTRY_IAT].Size,
 		ImgOptHdr.DataDirectory[IMAGE_DIRECTORY_ENTRY_IAT].VirtualAddress);
 
-
-
-	//
 	printf("\n\t#####################[ SECTIONS ]#####################\n\n");
-
 
 	PIMAGE_SECTION_HEADER pImgSectionHdr = (PIMAGE_SECTION_HEADER)(((PBYTE)pImgNtHdr) + sizeof(IMAGE_NT_HEADERS));
 	for (size_t i = 0; i < pImgNtHdr->FileHeader.NumberOfSections; i++) {
